@@ -1,22 +1,26 @@
 package ua.com.lig.spring;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author karazhanov on 04.01.17.
  */
+@Component
 public class FileEventLogger implements EventLogger {
 
-    private String fileName;
+    private String fileName = "/home/karazhanov/fileName.txt";
     private File file;
 
-    public FileEventLogger(String fileName) {
-        this.fileName = fileName;
-    }
+//    public FileEventLogger(String fileName) {
+//        this.fileName = fileName;
+//    }
 
+    @PostConstruct
     public void init() throws IOException {
         this.file = new File(fileName);
         if(!this.file.canWrite()) {

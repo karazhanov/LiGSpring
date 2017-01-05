@@ -1,8 +1,11 @@
 package ua.com.lig.spring;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author karazhanov on 04.01.17.
  */
+@Component("consoleEL")
 public class ConsoleEventLogger implements EventLogger{
 
     @Override
