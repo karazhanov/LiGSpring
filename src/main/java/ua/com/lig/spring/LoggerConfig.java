@@ -30,7 +30,7 @@ public class LoggerConfig {
     private EventLogger compinedEventLogger;
 
     @Bean
-    @DependsOn({"consoleEL", "fileEventLogger"})
+//    @DependsOn({"consoleEL", "fileEventLogger"})
     public Collection<EventLogger> combinedLoggers() {
         Collection<EventLogger> cl = new ArrayList<>();
         cl.add(consoleEventLogger);
@@ -45,4 +45,5 @@ public class LoggerConfig {
         m.put(EventType.ERROR, compinedEventLogger);
         return m;
     }
+
 }

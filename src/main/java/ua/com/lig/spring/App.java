@@ -56,7 +56,7 @@ public class App {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        ctx.register(AppConfig.class, LoggerConfig.class, App.class);
+        //ctx.register(AppConfig.class, LoggerConfig.class, App.class);
         ctx.scan("ua.com.lig.spring");
         ctx.refresh();
         App app = ctx.getBean(App.class);

@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * @author karazhanov on 04.01.17.
  */
-@Component
+@Component("fileEventLogger")
 public class FileEventLogger implements EventLogger {
 
     private String fileName = "/home/karazhanov/fileName.txt";
