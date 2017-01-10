@@ -1,4 +1,4 @@
-package ua.com.lig.spring;
+package ua.com.lig.spring.testing;
 
 import java.text.DateFormat;
 import java.util.Date;

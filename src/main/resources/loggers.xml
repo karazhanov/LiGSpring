@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
- 		http://www.springframework.org/schema/beans
- 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="-->
+ 		<!--http://www.springframework.org/schema/beans-->
+ 		<!--http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">-->
 
-    <bean id="eventLogger" class="ua.com.lig.spring.ConsoleEventLogger"/>
-    <bean id="eventLoggerFile" class="ua.com.lig.spring.FileEventLogger" init-method="init">
-        <constructor-arg value="/home/karazhanov/fileName.txt"/>
-    </bean>
+    <!--<bean id="eventLogger" class="ua.com.lig.spring.testing.ConsoleEventLogger"/>-->
+    <!--<bean id="eventLoggerFile" class="ua.com.lig.spring.testing.FileEventLogger" init-method="init">-->
+        <!--<constructor-arg value="/home/karazhanov/fileName.txt"/>-->
+    <!--</bean>-->
 
-    <bean id="combinedEventLogger" class="ua.com.lig.spring.CompinedEventLogger">
-        <constructor-arg>
-            <list>
-                <ref bean="eventLogger"/>
-                <ref bean="eventLoggerFile"/>
-            </list>
-        </constructor-arg>
-    </bean>
+    <!--<bean id="combinedEventLogger" class="ua.com.lig.spring.testing.CompinedEventLogger">-->
+        <!--<constructor-arg>-->
+            <!--<list>-->
+                <!--<ref bean="eventLogger"/>-->
+                <!--<ref bean="eventLoggerFile"/>-->
+            <!--</list>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
 
 
-</beans>
+<!--</beans>-->

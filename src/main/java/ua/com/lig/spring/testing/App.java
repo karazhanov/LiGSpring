@@ -1,7 +1,6 @@
-package ua.com.lig.spring;
+package ua.com.lig.spring.testing;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +10,7 @@ import java.util.Map;
 /**
  * @author karazhanov on 04.01.17.
  */
-@Service
+//@Service
 public class App {
 
     @Autowired
@@ -54,20 +53,17 @@ public class App {
         logger.logEvent(e);
     }
 
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        //ctx.register(AppConfig.class, LoggerConfig.class, App.class);
-        ctx.scan("ua.com.lig.spring");
-        ctx.refresh();
-        App app = ctx.getBean(App.class);
-
+//    public static void main(String[] args) {
 //        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-//        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
-        Event e1 = (Event) ctx.getBean("event");
-        app.logEvent(e1, "Hello from 1");
-        Event e2 = (Event) ctx.getBean("event");
-        app.logEvent(e2, EventType.INFO, "Hello from 2");
-        Event e3 = (Event) ctx.getBean("event");
-        app.logEvent(e3, EventType.ERROR, "Hello from 3");
-    }
+//        ctx.scan("ua.com.lig.spring");
+//        ctx.refresh();
+//        App app = ctx.getBean(App.class);
+//
+//        Event e1 = (Event) ctx.getBean("event");
+//        app.logEvent(e1, "Hello from 1");
+//        Event e2 = (Event) ctx.getBean("event");
+//        app.logEvent(e2, EventType.INFO, "Hello from 2");
+//        Event e3 = (Event) ctx.getBean("event");
+//        app.logEvent(e3, EventType.ERROR, "Hello from 3");
+//    }
 }

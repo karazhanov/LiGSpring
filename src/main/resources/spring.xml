@@ -1,53 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="
- 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
- 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
- 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:util="http://www.springframework.org/schema/util"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="-->
+ 		<!--http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd-->
+ 		<!--http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd-->
+ 		<!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">-->
 
-    <context:annotation-config/>
+    <!--<context:annotation-config/>-->
 
-    <context:component-scan base-package="ua.com.lig.spring"/>
-    
-    <import resource="loggers.xml"/>
+    <!--<context:component-scan base-package="ua.com.lig.spring"/>-->
+    <!---->
+    <!--<import resource="loggers.xml"/>-->
 
-    <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:client.properties</value>
-            </list>
-        </property>
-        <property name="ignoreResourceNotFound" value="true"/>
-    </bean>
+    <!--<bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>classpath:client.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="ignoreResourceNotFound" value="true"/>-->
+    <!--</bean>-->
 
-    <bean id="client" class="ua.com.lig.spring.Client">
-        <constructor-arg value="${id}"/>
-        <constructor-arg value="${name}"/>
-    </bean>
+    <!--<bean id="client" class="ua.com.lig.spring.testing.Client">-->
+        <!--<constructor-arg value="${id}"/>-->
+        <!--<constructor-arg value="${name}"/>-->
+    <!--</bean>-->
 
-    <util:map id="loggerMap">
-        <entry key="INFO" value-ref="eventLogger"/>
-        <entry key="ERROR" value-ref="combinedEventLogger"/>
-    </util:map>
+    <!--<util:map id="loggerMap">-->
+        <!--<entry key="INFO" value-ref="eventLogger"/>-->
+        <!--<entry key="ERROR" value-ref="combinedEventLogger"/>-->
+    <!--</util:map>-->
 
-    <bean id="app" class="ua.com.lig.spring.App">
-        <constructor-arg ref="client"/>
-        <constructor-arg ref="combinedEventLogger"/>
-        <constructor-arg ref="loggerMap"/>
-        <property name="greeting" value="${greeting}"/>
-    </bean>
+    <!--<bean id="app" class="ua.com.lig.spring.testing.App">-->
+        <!--<constructor-arg ref="client"/>-->
+        <!--<constructor-arg ref="combinedEventLogger"/>-->
+        <!--<constructor-arg ref="loggerMap"/>-->
+        <!--<property name="greeting" value="${greeting}"/>-->
+    <!--</bean>-->
 
-    <bean id="event" class="ua.com.lig.spring.Event" scope="prototype">
-        <constructor-arg>
-            <bean class="java.util.Date"/>
-        </constructor-arg>
-        <constructor-arg ref="dateFormat"/>
-    </bean>
+    <!--<bean id="event" class="ua.com.lig.spring.testing.Event" scope="prototype">-->
+        <!--<constructor-arg>-->
+            <!--<bean class="java.util.Date"/>-->
+        <!--</constructor-arg>-->
+        <!--<constructor-arg ref="dateFormat"/>-->
+    <!--</bean>-->
 
-    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+    <!--<bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>-->
 
 
-</beans>
+<!--</beans>-->

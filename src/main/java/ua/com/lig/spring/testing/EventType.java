@@ -1,4 +1,4 @@
-package ua.com.lig.spring;
+package ua.com.lig.spring.testing;
 
 /**
  * @author karazhanov on 04.01.17.

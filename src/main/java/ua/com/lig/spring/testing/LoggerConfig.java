@@ -1,10 +1,7 @@
-package ua.com.lig.spring;
+package ua.com.lig.spring.testing;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package ua.com.lig.spring;
+package ua.com.lig.spring.testing;
 
 import org.springframework.stereotype.Component;
 
