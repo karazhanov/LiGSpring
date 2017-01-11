@@ -1,27 +1,12 @@
 package ua.com.lig.spring.storage.entity;
 
-import javax.persistence.*;
 /**
  * @author karazhanov on 10.01.17.
  */
-@Entity
-@Table(name = "user")
 public class User {
-    @Id
-    @GeneratedValue(generator = "increment")
-//    @GenericGenerator(name= "increment", strategy= "increment")
-    @Column(name = "id", length = 13, nullable = false)
     private long id;
-
-    @Column(name = "name")
-    private String name;
-
-    public User() {
-    }
-
-    public User(String name) {
-        this.name = name;
-    }
+    private String login;
+    private String password;
 
     public long getId() {
         return id;
@@ -31,11 +16,19 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

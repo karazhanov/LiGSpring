@@ -5,12 +5,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import ua.com.lig.spring.storage.dao.UserDao;
+import ua.com.lig.spring.storage.dao.jdbc.JdbsTemplateUserDao;
 
 import javax.annotation.Resource;
-import javax.persistence.spi.PersistenceProvider;
 import javax.sql.DataSource;
 
 /**
@@ -19,7 +19,6 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan
 @PropertySource("classpath:app.properties")
-@EnableJpaRepositories("ua.com.lig.spring.storage.repository")
 public class DataConfig {
     private static final String PROP_DATABASE_DRIVER = "db.driver";
     private static final String PROP_DATABASE_URL = "db.url";
@@ -40,13 +39,12 @@ public class DataConfig {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPersistenceProviderClass(org.eclipse.persistence.jpa.PersistenceProvider.class);
-        entityManagerFactoryBean.setPackagesToScan(env.getRequiredProperty("db.entitymanager.packages.to.scan"));
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
 
-        entityManagerFactoryBean.setJpaProperties(getHibernateProperties());
-        return entityManagerFactoryBean;
+    @Bean(name = "userDao")
+    public UserDao jdbsTemplateUserDao(DataSource dataSource, JdbcTemplate jdbcTemplate) {
+        return new JdbsTemplateUserDao(dataSource, jdbcTemplate);
     }
 }
